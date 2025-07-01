@@ -26,9 +26,12 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, State> {
   render() {
     if (this.state.hasError) {
       return (
-        <div>
+        <div className="flex flex-col items-center justify-center mt-8 gap-4">
           <h2>Oops, there was an error!</h2>
-          <button onClick={() => this.setState({ hasError: false })}>
+          <button
+            onClick={() => this.setState({ hasError: false })}
+            className="bg-[#45B69C] text-white font-semibold py-2 px-6 rounded-lg shadow-lg hover-[#3D9B80] transition duration-200 transform hover:scale-105 cursor-pointer"
+          >
             Try again?
           </button>
         </div>
