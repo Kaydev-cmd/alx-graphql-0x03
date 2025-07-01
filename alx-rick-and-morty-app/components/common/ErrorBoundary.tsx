@@ -22,4 +22,21 @@ class ErrorBoundary extends React.Component<ErrorBoundaryProps, State> {
   componentDidCatch(error: Error, errorInfo: React.ErrorInfo) {
     console.log({ error, errorInfo });
   }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div>
+          <h2>Oops, there was an error!</h2>
+          <button onClick={() => this.setState({ hasError: false })}>
+            Try again?
+          </button>
+        </div>
+      );
+    }
+
+    return this.props.children;
+  }
 }
+
+export default ErrorBoundary;
