@@ -2,6 +2,8 @@ import { useQuery } from "@apollo/client";
 import { GET_EPISODES } from "@/graphql/queries";
 import { EpisodeProps, EpisodeCardProps } from "@/interfaces";
 import EpisodeCard from "@/components/common/EpisodeCard";
+import ErrorBoundary from "@/components/ErrorBoundary";
+import ErrorProneComponent from "@/components/ErrorProneComponent";
 import { useState, useEffect } from "react";
 
 const Home = () => {
@@ -67,6 +69,9 @@ const Home = () => {
             Next
           </button>
         </div>
+        <ErrorBoundary>
+          <ErrorProneComponent />
+        </ErrorBoundary>
       </main>
 
       {/* Footer */}
